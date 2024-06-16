@@ -1,7 +1,5 @@
 package br.com.alura.domain;
 
-import java.util.Arrays;
-
 public class Abrigo {
 
     private Long id;
