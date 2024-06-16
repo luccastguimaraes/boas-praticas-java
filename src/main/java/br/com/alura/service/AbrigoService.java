@@ -17,14 +17,18 @@ public class AbrigoService implements Services {
         HttpResponse<String> response = requisicaoGet(uri);
         String responseBody = response.body();
         ObjectMapper objectMapper = new ObjectMapper();
-        List<Abrigo> abrigoList = objectMapper.readValue(responseBody, new TypeReference<List<Abrigo>>() {});
-        System.out.println("Abrigos cadastrados:");
-        for (Abrigo abrigo : abrigoList) {
-            long id = abrigo.getId();
-            String nome = abrigo.getNome();
-            System.out.println(id + " - " + nome);
+        List<Abrigo> abrigoList = objectMapper.readValue(responseBody, new TypeReference<>() {});
+        if(abrigoList.isEmpty()){
+            System.out.println("Não há abrigos cadastrados");
+        } else {
+            System.out.println("Abrigos cadastrados:");
+            for (Abrigo abrigo : abrigoList) {
+                long id = abrigo.getId();
+                String nome = abrigo.getNome();
+                System.out.println(id);
+                System.out.println(nome);
+            }
         }
-
 
         /*
         JsonArray jsonArray = JsonParser.parseString(responseBody).getAsJsonArray();

@@ -1,5 +1,7 @@
 package br.com.alura.domain;
 
+import java.util.Arrays;
+
 public class Abrigo {
 
     private Long id;
@@ -15,6 +17,13 @@ public class Abrigo {
         this.nome = nome;
         this.telefone = telefone;
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return """
+               "id":%s,"nome":"%s","telefone":"%s","email":"%s"
+               """.formatted(this.id, this.nome, this.telefone, this.email);
     }
 
     public Pet[] getPets() {
@@ -35,5 +44,9 @@ public class Abrigo {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(long l) {
+        this.id = l;
     }
 }
